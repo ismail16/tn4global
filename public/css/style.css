@@ -1,0 +1,17 @@
+.margin-top-20{
+	margin-top: 20px;
+}
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  color: white;
+  text-align: center;
+}
+
+
+.header-footer-bg {
+    background-color: #4dd216!important;
+}
