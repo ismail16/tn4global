@@ -1,4 +1,4 @@
-﻿/*********************************************************************************
+﻿.bg-image--1/*********************************************************************************
 
     Template Name: Boighor Responsive Bootstrap4 Template
     Version: 1.0
@@ -629,27 +629,27 @@ a {
 
 /* Background Image */
 .bg-image--1 {
-  background-image: url(images/bg/1.jpg);
+  background-image: url(images/bg/Baner-01.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
 .bg-image--2 {
-  background-image: url(images/bg/2.jpg);
+  background-image: url(images/bg/Baner-02.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
 .bg-image--3 {
-  background-image: url(images/bg/3.jpg);
+  background-image: url(images/bg/Baner-03.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
 .bg-image--4 {
-  background-image: url(images/bg/4.jpg);
+  background-image: url(images/bg/Baner-04.png);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
 .bg-image--5 {
-  background-image: url(images/bg/5.jpg);
+  background-image: url(images/bg/1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -660,7 +660,7 @@ a {
   background-size: cover;
   background-position: center center; }
 .bg-image--7 {
-  background-image: url(images/bg/7.jpg);
+  background-image: url(images/bg/1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -1179,7 +1179,8 @@ Elements Styles
   Social Icon Styles
 ------------------------------*/
 .social__net li {
-  margin-right: 10px; }
+  margin: 0px 10px;
+}
 .social__net li a {
   border-radius: 100%;
   color: #333;
@@ -1187,7 +1188,7 @@ Elements Styles
   font-size: 32px;
   height: 34px;
   line-height: 32px;
-  margin-right: 10px;
+  /*margin-right: 10px;*/
   padding: 0;
   text-align: center;
   transition: all 300ms ease-in 0s;
@@ -3017,9 +3018,10 @@ h3.widget-title-modal {
   margin-top: 60px;
 }
 .contentbox > h3 {
-  color: #ce7852;
+  color: #ffffff;
   font-size: 40px;
   margin-bottom: 10px;
+  text-transform: uppercase;
 }
 .slider--15 .slide .slider__content h2.another {
   font-size: 60px;
@@ -3045,14 +3047,15 @@ h3.widget-title-modal {
   margin: 0 0 50px;
   max-width: 725px; }
 .slide .slider__content a.shopbtn {
-  color: #333;
+  color: #fff;
   display: inline-block;
   font-size: 14px;
   font-weight: 600;
   letter-spacing: 0.1em;
   line-height: 30px;
-  margin-top: 30px;
+  /* margin-top: -22px; */
   text-transform: uppercase;
+  background-color: #00a651;
 }
   .slide .slider__content a.shopbtn::after {
     background: rgba(0, 0, 0, 0) url("images/icons/links_static8.png") repeat scroll 100% 50%;
@@ -6031,7 +6034,7 @@ a.checkout__title {
   font-size: 18px;
   height: 25px;
   line-height: 25px;
-  margin-right: 0;
+  /*margin-right: 0;*/
   width: 25px;
 }
 .footer-static-top {

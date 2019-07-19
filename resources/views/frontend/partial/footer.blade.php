@@ -1,5 +1,6 @@
 <!-- Footer Area -->
-<footer id="wn__footer" class="footer__area bg__cat--8 brown--color">
+<footer id="wn__footer" class="footer__area brown--color">
+  <hr>
   <div class="footer-static-top">
     <div class="container">
       <div class="row">
@@ -7,24 +8,18 @@
           <div class="footer__widget footer__menu">
             <div class="ft__logo">
               <a href="index.html">
-                <img src="{{ asset('public/frontend_assets/images/logo/3.png') }}" alt="logo">
+                <img src="{{ asset('public/images/logos/logo.jpg') }}" alt="logo" width="150">
               </a>
               <!-- <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered duskam alteration variations of passages</p> -->
             </div>
             <div class="footer__content">
               <ul class="social__net social__net--2 d-flex justify-content-center">
                 <li><a href="#"><i class="bi bi-facebook"></i></a></li>
-                <li><a href="#"><i class="bi bi-google"></i></a></li>
-                <li><a href="#"><i class="bi bi-twitter"></i></a></li>
                 <li><a href="#"><i class="bi bi-linkedin"></i></a></li>
                 <li><a href="#"><i class="bi bi-youtube"></i></a></li>
               </ul>
               <ul class="mainmenu d-flex justify-content-center">
-                <li><a href="">Trending</a></li>
-                <li><a href="">Best Seller</a></li>
                 <li><a href="{{ route('products') }}">All Product</a></li>
-                <li><a href="">Wishlist</a></li>
-                <li><a href="{{route('blogs')}}">Blog</a></li>
                 <li><a href="{{ route('contract') }}">Contact</a></li>
               </ul>
             </div>
@@ -33,13 +28,13 @@
       </div>
     </div>
   </div>
-  <div class="copyright__wrapper">
+  <div class="copyright__wrapper" style="background-color: #2f404e!important;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="copyright">
             <div class="copy__right__inner text-center">
-              <p>Copyright <i class="fa fa-copyright"></i> <a href="#">BOOKSTOR</a> All Rights Reserved</p>
+              <p style="color: #fff;">Copyright <i class="fa fa-copyright"></i> <a href="http://tn4global.com/" style="color: #62bc45;">TN4GLOBAL</a> All Rights Reserved</p>
             </div>
           </div>
         </div>
