@@ -11,11 +11,10 @@
 					<aside class="wedget__categories poroduct--cat">
 						<h3 class="wedget__title">Product Categories</h3>
 						<ul id="filters">
-							<li><a class="btn btn-link" href="{{ route('products') }}">All Products</a></li>
+							<li><button type="button" class="btn btn-link is-checked" data-filter="*">Show all</button></li>
 							@foreach(App\Models\Category::orderBy('id', 'asc')->get() as $category)
-{{--							<li><button type="button" class="btn btn-link" data-filter=".{{ $category->id }}">{{ $category->name }}</button></li>--}}
-{{--							<!-- <li><a href="#">{{ $category->name }} <span>3</span></a></li> -->--}}
-								<li><a class="btn btn-link" href="{{ route('productsByCategory', $category->id) }}">{{ $category->name }}</a></li>
+							<li><button type="button" class="btn btn-link" data-filter=".{{ $category->id }}">{{ $category->name }}</button></li>
+							<!-- <li><a href="#">{{ $category->name }} <span>3</span></a></li> -->
 							@endforeach
 						</ul>
 					</aside>
@@ -27,7 +26,22 @@
 			<div class="col-lg-9 col-12 order-1 order-lg-2">
 				<div class="row">
 					<div class="col-lg-12">
-						<h3 class="wedget__title">Products</h3>
+						<div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
+							<div class="shop__list nav justify-content-center" role="tablist">
+								<a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
+								<a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
+							</div>
+							<p>Showing 1–12 of 40 results</p>
+							<div class="orderby__wrapper">
+								<span>Sort By</span>
+								<select class="shot__byselect">
+									<option>Default sorting</option>
+									<!-- @foreach(App\Models\Category::orderBy('id', 'asc')->get() as $category)
+										<option>{{ $category->name }}</option>
+									@endforeach -->
+								</select>
+							</div>
+						</div>
 					</div>
 				</div>
 				<div class="tab__container">
@@ -41,6 +55,7 @@
 									<div class="container">
 										<div class="row grid">
 											@foreach($products as $product)
+
 											<?php
 											// $image = App\Models\ProductImage::where('id', $product->id )->first();
 											?>
@@ -72,7 +87,6 @@
 											</div>
 											@endforeach
 										</div>
-
 									</div>
 									<!-- End Single Tab Content -->
 								</div>
@@ -80,10 +94,54 @@
 						</section>
 						<!-- End Product section  -->
 						<!-- </div> -->
-						<div class="row">
-							<div class="col-md-12 d-flex justify-content-center">
-								{{ $products->render() }}
+						<ul class="wn__pagination">
+							<li class="active"><a href="#">1</a></li>
+							<li><a href="#">2</a></li>
+							<li><a href="#">3</a></li>
+							<li><a href="#">4</a></li>
+							<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
+						</ul>
+					</div>
+					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
+						<div class="list__view__wrapper">
+							<!-- Start Single Product -->
+							@foreach($products as $product)
+							<?php
+							$image = App\Models\ProductImage::where('id', $product->id )->first();
+							?>
+							<div class="list__view">
+								<div class="thumb">
+									<a class="first__img" href="{{ route('single_product',$product->id) }}"><img src="{{ asset('public/images/product_image/'.$product->images->first()->image) }}" alt="product images" style="width:70%"></a>
+									<!-- <a class="second__img animation1" href="single-product.html"><img src="{{ asset('images/product_image/'.$image->image) }}" alt="product images"></a> -->
+								</div>
+								<div class="content">
+									<h2><a href="{{ route('single_product',$product->id) }}">{{ $product->title }}</a></h2>
+									<ul class="rating d-flex">
+										<li class="on"><i class="fa fa-star-o"></i></li>
+										<li class="on"><i class="fa fa-star-o"></i></li>
+										<li class="on"><i class="fa fa-star-o"></i></li>
+										<li class="on"><i class="fa fa-star-o"></i></li>
+										<li><i class="fa fa-star-o"></i></li>
+										<li><i class="fa fa-star-o"></i></li>
+									</ul>
+									<ul class="prize__box">
+										<li>{{ $product->price }}</li>
+										<!-- <li class="old__prize">$220.00</li> -->
+									</ul>
+									<p>{{ $product->description }}</p>
+									<ul class="cart__action d-flex">
+										<!-- <li class="cart"><a href="cart.html">Add to cart</a></li> -->
+										@include('frontend.partial.add_to_cart')
+										<li class="wishlist"><a href="cart.html"></a></li>
+										<li class="compare"><a href="cart.html"></a></li>
+									</ul>
+
+								</div>
 							</div>
+							<hr>
+							@endforeach
+							<!-- End Single Product -->
+
 						</div>
 					</div>
 				</div>

@@ -644,7 +644,7 @@ a {
   background-size: cover;
   background-position: center center; }
 .bg-image--4 {
-  background-image: url(images/bg/Baner-04.png);
+  background-image: url(.fullscreen);
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center; }
@@ -819,7 +819,7 @@ a {
 
 /* Height and width */
 .fullscreen {
-  min-height: 85vh;
+  /*min-height: 85vh;*/
   width: 100%; }
 .w--100 {
   width: 100%; }

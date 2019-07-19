@@ -3,12 +3,12 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="x-ua-compatible" content="ie=edge">
-	<title>Home | Bookshop</title>
+	<title>TN4 | GLOBAL</title>
 	<meta name="description" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 
 	<!-- Favicons -->
-	<link rel="shortcut icon" href="{{ asset('public/frontend_assets/images/logo/logo.png')}}">
+	<link rel="shortcut icon" href="{{ asset('public/images/logos/TN4-Logo.png')}}">
 	<link rel="apple-touch-icon" href="{{ asset('public/frontend_assets/images/icon.png')}}">
 
 	<!-- Google font (font-family: 'Roboto', sans-serif; Poppins ; Satisfy) -->

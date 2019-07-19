@@ -4,7 +4,7 @@
   <div class="footer-static-top">
     <div class="container">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-md-4">
           <div class="footer__widget footer__menu">
             <div class="ft__logo">
               <a href="index.html">
@@ -24,6 +24,51 @@
               </ul>
             </div>
           </div>
+        </div>
+        <div class="col-lg-4">
+          <div class="wn__address">
+            <h6 class="text-left">Get office info.</h6> <br>
+            <div class="wn__addres__wreapper">
+
+              <div class="single__address">
+                <div class="content">
+                  <p><i class="icon-location-pin icons"></i>28/1/C Toyenbee Circular Riad. Motijheel, Dhaka.
+                  </p>
+                </div>
+              </div>
+
+              <div class="single__address">
+                <div class="content">
+                  <p> <i class="icon-phone icons"></i> +8801983-783387</p>
+                </div>
+              </div>
+
+              <div class="single__address">
+
+                <div class="content">
+                  <p><i class="icon-envelope icons"></i> tn4globalbd@gmail.com</p>
+                </div>
+              </div>
+
+              <div class="single__address">
+                <div class="content">
+                  <p><i class="icon-globe icons"></i> www.tn4global.com</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <h6 class="text-left">Subscribe</h6> <br>
+          <form>
+            <div class="form-group text-left">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+              <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            </div>
+            <button type="submit" class="btn btn-primary d-flex justify-content-sm-start">Submit</button>
+          </form>
         </div>
       </div>
     </div>

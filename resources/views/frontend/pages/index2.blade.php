@@ -52,6 +52,18 @@
         </div>
       </div>
     </div>
+    <div class="row mt--10">
+      <div class="col-md-12 col-lg-12 col-sm-12">
+        <div class="product__nav nav justify-content-center" role="tablist">
+          <div id="filters" class="button-group">
+            |<button type="button" class="btn btn-link is-checked" data-filter="*">Show all</button> |
+            @foreach(App\Models\Category::orderBy('id', 'asc')->get() as $category)
+            <button type="button" class="btn btn-link" data-filter=".{{ $category->id }}">{{ $category->name }}</button> |
+            @endforeach
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="tab__container mt--20">
       <!-- Start Single Tab Content -->
       <div class="container">
@@ -88,11 +100,6 @@
           </div>
           @endforeach
         </div>
-          <div class="row">
-              <div class="col-md-12 d-flex justify-content-center">
-                  {{ $products->render() }}
-              </div>
-          </div>
       </div>
       <!-- End Single Tab Content -->
     </div>
@@ -169,7 +176,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-7 bg-image--4">
-                <img src="{{ asset('public/frontend_assets/images/bg/Baner-04.png') }}" alt="">
+                <img src="{{ asset('frontend_assets/images/bg/Baner-04.png') }}" alt="">
             </div>
             <div class="col-md-5">
                 <div class="section__title mt-4">

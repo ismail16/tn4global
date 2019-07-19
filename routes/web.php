@@ -8,6 +8,11 @@ Route::group(['prefix' => 'search'], function(){
 Route::get('/category/{category_id}', 'frontend\PagesController@productsByCategory')->name('productsByCategory');
 Route::get('/product/{id}', 'frontend\PagesController@single_product')->name('single_product');
 Route::get('/contract', 'frontend\PagesController@contract')->name('contract');
+Route::post('/contract', 'frontend\PagesController@contract_submit')->name('contract_submit');
+
+Route::get('/requirement', 'frontend\PagesController@requirement')->name('requirement');
+Route::post('/requirement', 'frontend\PagesController@requirement_submit')->name('requirement_submit');
+
 
 Route::get('/blogs', 'frontend\PagesController@blogs')->name('blogs');
 Route::get('/blog-details', 'frontend\PagesController@blog_details')->name('blog_details');

@@ -29,13 +29,18 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach(App\Models\Category::orderBy('id', 'desc')->get() as $category)
-                        <a class="dropdown-item" href="{{ route('products') }}">{{ $category->name }}</a>
+                        <a class="dropdown-item" href="{{ route('productsByCategory', $category->id) }}">{{ $category->name }}</a>
                     @endforeach
                 </div>
             </li>
             <li class="nav-item active">
                 <a class="nav-link" href="{{ route('contract') }}">
                     Contact
+                </a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link" href="{{ route('requirement') }}">
+                    Requirements
                 </a>
             </li>
         </ul>
@@ -47,7 +52,7 @@
                     </i>
                 </a>
             </li>
-            <li class="nav-item dropdown">
+            <li class="nav-item dropdown" style="margin: 0px 55px 0px 0px;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
                 </a>
@@ -56,6 +61,7 @@
                     <a class="dropdown-item" href="">Registration</a>
                 </div>
             </li>
+
         </ul>
     </div>
 </nav>
@@ -207,7 +213,6 @@
         .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
             top: -7px;
 </style>
-
 <!-- Start Search Popup -->
 <!-- <div class="brown-color box-search-content search_active block-bg close__top">
   <form id="search_mini_form" class="minisearch" action="#">

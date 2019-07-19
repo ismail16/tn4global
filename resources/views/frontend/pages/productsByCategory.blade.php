@@ -30,11 +30,12 @@
 				<div class="shop__sidebar">
 					<aside class="wedget__categories poroduct--cat">
 						<h3 class="wedget__title">Product Categories</h3>
-						<ul id="filters">
-							<li><button type="button" class="btn btn-link is-checked" data-filter="*">Show all</button></li>
+						<ul>
+							<li><a class="btn btn-link" href="{{ route('products') }}">All Products</a></li>
 							@foreach(App\Models\Category::orderBy('id', 'asc')->get() as $category)
-							<li><button type="button" class="btn btn-link" data-filter=".{{ $category->id }}">{{ $category->name }}</button></li>
-							<!-- <li><a href="#">{{ $category->name }} <span>3</span></a></li> -->
+{{--							<li><button type="button" class="btn btn-link" data-filter=".{{ $category->id }}">{{ $category->name }}</button></li>--}}
+{{--							<!-- <li><a href="#">{{ $category->name }} <span>3</span></a></li> -->--}}
+								<li><a class="btn btn-link" href="{{ route('productsByCategory', $category->id) }}">{{ $category->name }}</a></li>
 							@endforeach
 						</ul>
 					</aside>
@@ -49,17 +50,18 @@
 						<div class="shop__list__wrapper d-flex flex-wrap flex-md-nowrap justify-content-between">
 							<div class="shop__list nav justify-content-center" role="tablist">
 								<a class="nav-item nav-link active" data-toggle="tab" href="#nav-grid" role="tab"><i class="fa fa-th"></i></a>
-								<a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
 							</div>
-							<p>Showing 1–12 of 40 results</p>
+{{--							<p>Showing 1–12 of 40 results</p>--}}
 							<div class="orderby__wrapper">
-								<span>Sort By</span>
-								<select class="shot__byselect">
-									<option>Default sorting</option>
-									<!-- @foreach(App\Models\Category::orderBy('id', 'asc')->get() as $category)
-										<option>{{ $category->name }}</option>
-									@endforeach -->
-								</select>
+								<a class="nav-item nav-link" data-toggle="tab" href="#nav-list" role="tab"><i class="fa fa-list"></i></a>
+
+								{{--								<span>Sort By</span>--}}
+{{--								<select class="shot__byselect">--}}
+{{--									<option>Default sorting</option>--}}
+{{--									<!-- @foreach(App\Models\Category::orderBy('id', 'asc')->get() as $category)--}}
+{{--										<option>{{ $category->name }}</option>--}}
+{{--									@endforeach -->--}}
+{{--								</select>--}}
 							</div>
 						</div>
 					</div>
@@ -74,6 +76,7 @@
 									<!-- Start Single Tab Content -->
 									<div class="container">
 										<div class="row grid">
+											@if(count($products)>0)
 											@foreach($products as $product)
 											<?php
 											$image = App\Models\ProductImage::where('id', $product->id )->first();
@@ -82,8 +85,8 @@
 												<div class="product-grid4">
 													<div class="product-image4">
 														<a href="{{ route('single_product',$product->id) }}">
-															<img class="pic-1" src="{{ asset('images/product_image/'.$image->image) }}">
-															<img class="pic-2" src="{{ asset('images/product_image/'.$image->image) }}">
+															<img class="pic-1" src="{{ asset('public/images/product_image/'.$image->image) }}">
+															<img class="pic-2" src="{{ asset('public/images/product_image/'.$image->image) }}">
 														</a>
 														<ul class="social">
 															<li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
@@ -104,6 +107,15 @@
 												</div>
 											</div>
 											@endforeach
+											@else
+												<div class="col-md-12 well d-flex justify-content-center">
+													<div class="alert alert-danger" role="alert">
+														<h5>Opps!!</h5>
+														There is no data on This Category
+													</div>
+{{--													<h3 class="text-">There is no data on This Category </h3>--}}
+												</div>
+											@endif
 										</div>
 									</div>
 									<!-- End Single Tab Content -->
@@ -112,13 +124,11 @@
 						</section>
 						<!-- End Product section  -->
 						<!-- </div> -->
-						<ul class="wn__pagination">
-							<li class="active"><a href="#">1</a></li>
-							<li><a href="#">2</a></li>
-							<li><a href="#">3</a></li>
-							<li><a href="#">4</a></li>
-							<li><a href="#"><i class="zmdi zmdi-chevron-right"></i></a></li>
-						</ul>
+						<div class="row">
+							<div class="col-md-12 d-flex justify-content-center">
+								{{ $products->render() }}
+							</div>
+						</div>
 					</div>
 					<div class="shop-grid tab-pane fade" id="nav-list" role="tabpanel">
 						<div class="list__view__wrapper">
