@@ -32,7 +32,7 @@
 								<?php $images = App\Models\ProductImage::where('product_id', $product->id )->get(); ?>
 								<div class="fotorama wn__fotorama__action" data-nav="thumbs">
 									@foreach($images as $image)
-									<a><img src="{{ asset('public/images/product_image/'.$image->image) }}" alt=""></a>
+									<a><img src="{{ asset('images/product_image/'.$image->image) }}" alt=""></a>
 									@endforeach
 								</div>
 							</div>

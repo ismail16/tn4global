@@ -48,8 +48,8 @@
 												<div class="product-grid4">
 													<div class="product-image4">
 														<a href="{{ route('single_product',$product->id) }}">
-															<img class="pic-1" src="{{ asset('public/images/product_image/'.$product->images->first()->image) }}">
-															<img class="pic-2" src="{{ asset('public/images/product_image/'.$product->images->first()->image) }}">
+															<img class="pic-1" src="{{ asset('images/product_image/'.$product->images->first()->image) }}">
+															<img class="pic-2" src="{{ asset('images/product_image/'.$product->images->first()->image) }}">
 														</a>
 														<ul class="social">
 															<li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>

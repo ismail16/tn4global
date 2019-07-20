@@ -21,7 +21,7 @@
 				<!-- <td>{{ $loop->index+1 }}</td> -->
 				<td data-th="Product">
 					<div class="row">
-						<div class="col-sm-2 hidden-xs"><img src="{{ asset('public/images/product_image/'.$cart->product->images->first()->image) }}" alt="..." class="img-responsive"/></div>
+						<div class="col-sm-2 hidden-xs"><img src="{{ asset('images/product_image/'.$cart->product->images->first()->image) }}" alt="..." class="img-responsive"/></div>
 						<div class="col-sm-10">
 							<a href="{{ route('single_product',$cart->product->id) }}">{{ $cart->product->title }}</a>
 

@@ -79,14 +79,14 @@
 											@if(count($products)>0)
 											@foreach($products as $product)
 											<?php
-											$image = App\Models\ProductImage::where('id', $product->id )->first();
+//											$image = App\Models\ProductImage::where('id', $product->id )->first();
 											?>
 											<div class="col-md-3 col-sm-6 grid-item {{ $product->category }}" data-category="{{ $product->category }}" style="width:50%">
 												<div class="product-grid4">
 													<div class="product-image4">
 														<a href="{{ route('single_product',$product->id) }}">
-															<img class="pic-1" src="{{ asset('public/images/product_image/'.$image->image) }}">
-															<img class="pic-2" src="{{ asset('public/images/product_image/'.$image->image) }}">
+															<img class="pic-1" src="{{ asset('images/product_image/'.$product->images->first()->image) }}">
+															<img class="pic-2" src="{{ asset('images/product_image/'.$product->images->first()->image) }}">
 														</a>
 														<ul class="social">
 															<li><a href="#" data-tip="Quick View"><i class="fa fa-eye"></i></a></li>
@@ -139,8 +139,8 @@
 							?>
 							<div class="list__view">
 								<div class="thumb">
-									<a class="first__img" href="{{ route('single_product',$product->id) }}"><img src="{{ asset('images/product_image/'.$image->image) }}" alt="product images" style="width:70%"></a>
-									<!-- <a class="second__img animation1" href="single-product.html"><img src="{{ asset('images/product_image/'.$image->image) }}" alt="product images"></a> -->
+									<a class="first__img" href="{{ route('single_product',$product->id) }}"><img src="{{ asset('images/product_image/'.$product->images->first()->image) }}" alt="product images" style="width:70%"></a>
+									<!-- <a class="second__img animation1" href="single-product.html"><img src="{{ asset('images/product_image/'.$product->images->first()->image) }}" alt="product images"></a> -->
 								</div>
 								<div class="content">
 									<h2><a href="{{ route('single_product',$product->id) }}">{{ $product->title }}</a></h2>

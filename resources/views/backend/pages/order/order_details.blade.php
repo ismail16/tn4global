@@ -21,25 +21,29 @@
 
                     <div class="col-md-6 text-right">
                       <p class="font-weight-bold mb-1">Invoice #{{ $order->id }}</p>
-                      <p class="text-muted">{{ $order->created_at }}</p>
+                      <p class="text-muted">{{ $order->created_at->format('d M Y') }}</p>
                     </div>
                   </div>
 
                   <hr class="my-1">
+{{--                  {{$order}}--}}
 
                   <div class="row pl-5 pr-5 pt-3 pb-1">
                     <div class="col-md-6">
                       <p class="font-weight-bold mb-0">Client Information</p>
-                      <p class="mb-0">{{ $order->name }}</p>
-                      <p class="mb-0">{{ $order->phone_no }}</p>
-                      <p class="mb-0">{{ $order->shipping_address }}</p>
+                      <p class="mb-0"><span class="text-muted">Name: </span>{{ $order->name }}</p>
+                      <p class="mb-0"><span class="text-muted">Phone: </span>{{ $order->phone_no }}</p>
+                      <p class="mb-0"><span class="text-muted">Shipping Address: </span>{{ $order->shipping_address }}</p>
                     </div>
 
                     <div class="col-md-6 text-right">
                       <p class="font-weight-bold mb-0">Payment Details</p>
                       <p class="mb-0"><span class="text-muted">VAT: </span> 1425782</p>
                       <!-- <p class="mb-0"><span class="text-muted">VAT ID: </span> 10253642</p> -->
-                      <p class="mb-0"><span class="text-muted">Payment Type: </span> ---- </p>
+                      <p class="mb-0"><span class="text-muted">Payment Type: </span> {{ \App\Models\Payment::find($order->payment_id)->name }} </p>
+                      @if($order->transaction_id !='')
+                      <p class="mb-0"><span class="text-muted">Transaction ID: </span> {{ $order->transaction_id}} </p>
+                      @endif
                       <!-- <p class="mb-0"><span class="text-muted">Name: </span> John Doe</p> -->
                     </div>
                   </div>
