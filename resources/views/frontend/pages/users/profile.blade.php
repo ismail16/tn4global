@@ -3,7 +3,7 @@
 @section('sub-content')
   <div class='container'>
     <div class="card-body mb-5">
-      <form method="POST" action="{{ route('user.profile.update') }}" enctype="multipart/form-data">
+      <form method="POST" action="{{ route('user.profile.update') }}" enctype="multipart/form-data" autocomplete="off">
         @csrf
 
         <div class="form-group row">
@@ -33,21 +33,6 @@
             @endif
           </div>
         </div>
-
-        <div class="form-group row">
-          <label for="username" class="col-md-4 col-form-label text-md-right">Username</label>
-
-          <div class="col-md-6">
-            <input id="username" type="text" class="form-control{{ $errors->has('username') ? ' is-invalid' : '' }}" name="username" value="{{ $user->username }}" required autofocus>
-
-            @if ($errors->has('username'))
-              <span class="invalid-feedback">
-                <strong>{{ $errors->first('username') }}</strong>
-              </span>
-            @endif
-          </div>
-        </div>
-
         <div class="form-group row">
           <label for="email" class="col-md-4 col-form-label text-md-right">E-Mail Address</label>
 
@@ -77,41 +62,24 @@
         </div>
 
         <div class="form-group row">
-          <label for="division_id" class="col-md-4 col-form-label text-md-right">Division</label>
-
+          <label for="division_id" class="col-md-4 col-form-label text-md-right">City</label>
           <div class="col-md-6">
-            <select class="form-control" name="division_id">
-              <option value="">Please select your division</option>
-              @foreach ($divisions as $division)
-                <option value="{{ $division->id }}" {{ $user->division_id == $division->id ? 'selected' : '' }}>{{ $division->name }}</option>
-              @endforeach
-            </select>
+            <input id="city" type="text" class="form-control" name="city" value="{{ $user->city }}">
           </div>
         </div>
         <div class="form-group row">
-          <label for="district_id" class="col-md-4 col-form-label text-md-right">District</label>
-
+          <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
           <div class="col-md-6">
-            <select class="form-control" name="district_id">
-              <option value="">Please select your district</option>
-              @foreach ($districts as $district)
-                <option value="{{ $district->id }}" {{ $user->district_id == $district->id ? 'selected' : '' }}>{{ $district->name }}</option>
-              @endforeach
-            </select>
+            <input id="country" type="text" class="form-control" name="country" value="{{ $user->country }}">
           </div>
         </div>
 
         <div class="form-group row">
-          <label for="street_address" class="col-md-4 col-form-label text-md-right">Street Address</label>
-
+          <label for="street_address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}*</label>
           <div class="col-md-6">
-            <input id="street_address" type="text" class="form-control{{ $errors->has('street_address') ? ' is-invalid' : '' }}" name="street_address" value="{{ $user->street_address }}" required>
-
-            @if ($errors->has('street_address'))
-              <span class="invalid-feedback">
-                <strong>{{ $errors->first('street_address') }}</strong>
-              </span>
-            @endif
+                <textarea name="address" id="address" cols="50" rows="3" required>
+                    {{ $user->address }}
+                </textarea>
           </div>
         </div>
 
@@ -145,7 +113,7 @@
           <label for="password" class="col-md-4 col-form-label text-md-right">New Password (optional)</label>
 
           <div class="col-md-6">
-            <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password">
+            <input id="password" type="text" class="form-control" name="password">
 
             @if ($errors->has('password'))
               <span class="invalid-feedback">
@@ -165,4 +133,7 @@
       </form>
     </div>
   </div>
+  <script>
+
+  </script>
 @endsection

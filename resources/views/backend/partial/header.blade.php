@@ -6,7 +6,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Laravel | Ecommerce</title>
+  <title>TN4 GLOBAL | Dashboard</title>
   <!-- plugins:css -->
   <link rel="stylesheet" href="{{asset('public/backend_assets/vendor/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{ asset('public/backend_assets/vendor/css/vendor.bundle.base.css')}}">
@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="{{asset('public/css/jquery.dataTables.css')}}">
 
   <!-- endinject -->
-  <link rel="shortcut icon" href="{{ asset('public/frontend_assets/images/logo/logo.png')}}" />
+  <link rel="shortcut icon" href="{{ asset('public/images/logos/TN4-Logo.png')}}">
 </head>
 
 <body>

@@ -52,16 +52,41 @@
                     </i>
                 </a>
             </li>
+            @guest
             <li class="nav-item dropdown" style="margin: 0px 55px 0px 0px;">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Account
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="">Login</a>
-                    <a class="dropdown-item" href="">Registration</a>
+                    <a class="dropdown-item" href="{{ route('login') }}">Login</a>
+                    @if (Route::has('register'))
+                        <a class="dropdown-item" href="{{ route('register') }}">Registration</a>
+                    @endif
                 </div>
             </li>
+            @else
+                <li class="nav-item dropdown">
 
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle" role="button" data-toggle="dropdown" style="display: -webkit-box; margin: 17px 3px -16px 5px; cursor: pointer;">
+                        <img src="{{ App\Helpers\ImageHelper::getUserImage(Auth::user()->id) }}" class="rounded-circle" style="width:40px;">
+                        <p>&nbsp;&nbsp;{{ Auth::user()->first_name }}<span class="caret"></span></p>
+
+                    </a>
+
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                        <small><a class="dropdown-item" href="{{ route('user.dashboard') }}">Profile</a></small>
+                        <small><a class="dropdown-item" href="{{ route('logout') }}"
+                                  onclick="event.preventDefault();
+                document.getElementById('logout-form').submit();">
+                                {{ __('Logout') }}
+                            </a></small>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </div>
+
+                </li>
+            @endguest
         </ul>
     </div>
 </nav>

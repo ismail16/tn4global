@@ -84,6 +84,17 @@ Route::group(['prefix' => 'admin'],function(){
     Route::post('/delete/{id}', 'backend\ProductController@delete')->name('admin.product.delete');
   });
 
+    //Admin Product route
+  Route::group(['prefix' => '/bulk-product'],function(){
+    Route::get('/', 'backend\BulkProductController@manage')->name('admin.bulk_product.manage');
+    Route::get('/create', 'backend\BulkProductController@create')->name('admin.bulk_product.create');
+    Route::post('/store', 'backend\BulkProductController@store')->name('admin.bulk_product.store');
+
+    Route::get('/edit/{id}', 'backend\BulkProductController@edit')->name('admin.bulk_product.edit');
+    Route::post('/update/{id}', 'backend\BulkProductController@update')->name('admin.bulk_product.update');
+    Route::post('/delete/{id}', 'backend\BulkProductController@delete')->name('admin.bulk_product.delete');
+  });
+
   // division route
   Route::group(['prefix' => '/division'],function(){
     Route::get('/', 'backend\DivisionController@manage')->name('admin.division.manage');

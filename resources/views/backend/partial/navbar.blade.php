@@ -1,14 +1,14 @@
 <!-- partial:partials/_navbar.html -->
 <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
-  <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center">
-    <a class="navbar-brand brand-logo" href="index.html">
-      <img src="{{ asset('public/frontend_assets/images/logo/logo.png')}}" alt="logo" />
+  <div class="text-center navbar-brand-wrapper d-flex align-items-top justify-content-center" style="background-color: #3d5245">
+    <a class="navbar-brand brand-logo" href="">
+      <img src="{{ asset('public/images/logos/TN4-Logo.png')}}" alt="logo" />
     </a>
-    <a class="navbar-brand brand-logo-mini" href="index.html">
-      <img src="{{ asset('public/frontend_assets/images/logo/logo.png')}}" alt="logo" />
+    <a class="navbar-brand brand-logo-mini" href="">
+      <img src="{{ asset('public/images/logos/TN4-Logo.png')}}" alt="logo" />
     </a>
   </div>
-  <div class="navbar-menu-wrapper d-flex align-items-center">
+  <div class="navbar-menu-wrapper d-flex align-items-center" style="background-color: #506f5c">
     <!-- <ul class="navbar-nav navbar-nav-left header-links d-none d-md-flex">
       <li class="nav-item">
         <a href="#" class="nav-link">Schedule

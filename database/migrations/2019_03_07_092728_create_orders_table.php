@@ -28,15 +28,6 @@ class CreateOrdersTable extends Migration
       $table->boolean('is_seen_by_admin')->default(0);
       $table->string('transaction_id')->nullable();
       $table->timestamps();
-
-      $table->foreign('user_id')
-      ->references('id')->on('users')
-      ->onDelete('cascade');
-
-      $table->foreign('payment_id')
-      ->references('id')->on('payments')
-      ->onDelete('cascade');
-
     });
   }
 

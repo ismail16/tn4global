@@ -21,7 +21,7 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
+                            <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }} *</label>
                             <div class="col-md-6">
                                 <input id="first_name" type="text" class="form-control" name="first_name" required autofocus>
                             </div>
@@ -42,50 +42,38 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }} *</label>
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" required>
                             </div>
                         </div>
 
-                        
-
                         <div class="form-group row">
-                            <label for="division_id" class="col-md-4 col-form-label text-md-right">Division</label>
-
+                            <label for="division_id" class="col-md-4 col-form-label text-md-right">City</label>
                             <div class="col-md-6">
-                              <select class="form-control" name="division_id">
-                                <option value="">Please select your division</option>
-                                @foreach ($divisions as $division)
-                                <option value="{{ $division->id }}">{{ $division->name }}</option>
-                                @endforeach
-                            </select>
+                                <input id="city" type="text" class="form-control" name="city">
+                            </div>
+                        </div>
+                    <div class="form-group row">
+                        <label for="country" class="col-md-4 col-form-label text-md-right">Country</label>
+                        <div class="col-md-6">
+                            <input id="country" type="text" class="form-control" name="country">
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="district_id" class="col-md-4 col-form-label text-md-right">District</label>
-
-                        <div class="col-md-6">
-                          <select class="form-control" name="district_id">
-                            <option value="">Please select your district</option>
-                            @foreach ($districts as $district)
-                            <option value="{{ $district->id }}">{{ $district->name }}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                </div>
 
                 <div class="form-group row">
-                    <label for="street_address" class="col-md-4 col-form-label text-md-right">{{ __('Street Address') }}</label>
+                    <label for="street_address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}*</label>
 
                     <div class="col-md-6">
-                        <input id="street_address" type="street_address" class="form-control" name="street_address" required>
+                        <textarea name="address" id="address" cols="50" rows="3" required>
+
+                        </textarea>
                     </div>
                 </div>
 
                 <div class="form-group row">
-                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
+                    <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}*</label>
 
                     <div class="col-md-6">
                         <input id="password" type="password" class="form-control" name="password" required>
@@ -94,7 +82,7 @@
 
 
                 <div class="form-group row">
-                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                    <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}*</label>
 
                     <div class="col-md-6">
                         <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>

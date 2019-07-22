@@ -36,24 +36,18 @@ class UsersController extends Controller
     $user = Auth::user();
 
     $this->validate($request, [
-      'first_name' => 'required|string|max:30',
-      'last_name' => 'nullable|string|max:15',
-      'username' => 'required|alpha_dash|max:100|unique:users,username,'.$user->id,
-      'email' => 'required|string|email|max:100|unique:users,email,'.$user->id,
-      'division_id' => 'required|numeric',
-      'district_id' => 'required|numeric',
-      'phone_no' => 'required|max:15|unique:users,phone_no,'.$user->id,
-      'street_address' => 'required|max:100',
+      'first_name' => 'required|string',
+      'email' => 'required|string|email|unique:users,email,'.$user->id,
+      'address' => 'required',
     ]);
 
     $user->first_name = $request->first_name;
     $user->last_name = $request->last_name;
-    $user->username = $request->username;
     $user->email = $request->email;
-    $user->division_id = $request->division_id;
-    $user->district_id = $request->district_id;
+    $user->city = $request->city;
+    $user->country = $request->country;
     $user->phone_no = $request->phone_no;
-    $user->street_address = $request->street_address;
+    $user->address = $request->address;
     $user->shipping_address = $request->shipping_address;
 
     if ($request->password != NULL || $request->password != "") {

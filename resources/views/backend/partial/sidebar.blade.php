@@ -8,7 +8,7 @@
             <img src="{{ asset('public/frontend_assets/images/logo/profile.png')}}" alt="profile image">
           </div>
           <div class="text-wrapper">
-            <p class="profile-name">Ismail Hossain</p>
+            <p class="profile-name">Admin</p>
             <div>
               <small class="designation text-muted">Manager</small>
               <span class="status-indicator online"></span>
@@ -69,6 +69,23 @@
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{{ route('admin.product.manage') }}">Manage Products</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#Bulk-Products" aria-expanded="false" aria-controls="ui-basic">
+        <i class="fab fa-product-hunt menu-icon"></i>
+        <span class="menu-title">Bulk Product</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="Bulk-Products">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.bulk_product.create') }}">Add Bulk Products</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.bulk_product.manage') }}">Manage Bulk Products</a>
           </li>
         </ul>
       </div>
