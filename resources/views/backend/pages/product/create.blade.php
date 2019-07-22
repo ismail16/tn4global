@@ -37,7 +37,7 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlSelect1">Category</label>
-                    <select class="form-control" name="category" id="exampleFormControlSelect1">
+                    <select class="form-control" name="category_id" id="exampleFormControlSelect1">
                       <option value="">Parent Category</option>
                       @foreach(App\Models\Category::orderBy('name', 'desc')->where('parent_id', null)->get() as $parent)
                         <option value="{{ $parent->id }}">{{ $parent->name }}</option>
@@ -50,10 +50,8 @@
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Select Brand</label>
-                    <select class="form-control" name="brand_id">
-                      <option value="10">Please select a brand for the product</option>
-                    </select>
+                    <label for="exampleInputEmail1">Brand</label>
+                    <input type="text" class="form-control" name="brand_id" id="exampleInputEmail1">
                   </div>
                 </div>
               </div>

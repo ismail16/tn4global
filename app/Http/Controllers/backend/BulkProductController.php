@@ -48,7 +48,7 @@ class BulkProductController extends Controller
             foreach ($request->product_image as $image) {
                 $image_time = time();
                 $ext = strtolower($image->getClientOriginalExtension());
-                $image_full_name = $product->slug.'-image-'. $image_no .'-'.$image_time.'.' . $ext;
+                $image_full_name = $product->slug.'-image-'. $image_no.'.' . $ext;
                 $upload_path = 'images/bulk_product_image/';
                 $image_url = $upload_path . $image_full_name;
                 $success = $image->move($upload_path, $image_full_name);
@@ -97,19 +97,22 @@ class BulkProductController extends Controller
                 File::delete('images/bulk_product_image/'.$request->product_image00);
             }
             $ext = strtolower($image0->getClientOriginalExtension());
-            $image_full_name = $product->slug.'-image-'. '0' .'.' . $ext;
+//            $image_time = time();
+            $image_full_name = $product->slug.'-image-'.'0'.'.' . $ext;
             $upload_path = 'images/bulk_product_image/';
             $image_url = $upload_path . $image_full_name;
             $success = $image0->move($upload_path, $image_full_name);
             if ($success) {
-                if ($request->product_id00) {
-                    $product_image = BulkProductImage::find($request->product_id00);
-                }else {
-                    $product_image = new ProductImage;
-                    $product_image->product_id = $product->id;
-                    $product_image->image = $image_full_name;
-                }
+//                if ($request->product_id00) {
+//                    $product_image = BulkProductImage::find($request->product_id00);
+//                }else {
+//                    $product_image = new BulkProductImage;
+//                    $product_image->product_id = $product->id;
+//                    $product_image->image = $image_full_name;
+//                }
 
+                $product_image = BulkProductImage::find($request->product_id00);
+                $product_image->image = $image_full_name;
                 $product_image->save();
             }
         }
@@ -121,18 +124,22 @@ class BulkProductController extends Controller
                 File::delete('images/bulk_product_image/'.$request->product_image11);
             }
             $ext = strtolower($image1->getClientOriginalExtension());
-            $image_full_name = $product->slug.'-image-'. '1' .'.' . $ext;
+            $image_time = time();
+            $image_full_name = $product->slug.'-image-'.'1'.'-'.$image_time.'.' . $ext;
             $upload_path = 'images/bulk_product_image/';
             $image_url = $upload_path . $image_full_name;
             $success = $image1->move($upload_path, $image_full_name);
             if ($success) {
-                if ($request->product_id11 != '') {
-                    $product_image = BulkProductImage::find($request->product_id11);
-                }else {
-                    $product_image = new ProductImage;
-                    $product_image->product_id = $product->id;
-                    $product_image->image = $image_full_name;
-                }
+//                if ($request->product_id11 != '') {
+//                    $product_image = BulkProductImage::find($request->product_id11);
+//                }else {
+//                    $product_image = new ProductImage;
+//                    $product_image->product_id = $product->id;
+//                    $product_image->image = $image_full_name;
+//                }
+//                $product_image->save();
+                $product_image = BulkProductImage::find($request->product_id11);
+                $product_image->image = $image_full_name;
                 $product_image->save();
             }
         }
@@ -144,19 +151,23 @@ class BulkProductController extends Controller
                 File::delete('images/bulk_product_image/'.$request->product_image22);
             }
             $ext = strtolower($image2->getClientOriginalExtension());
-            $image_full_name = $product->slug.'-image-'. '2' .'.' . $ext;
+            $image_time = time();
+            $image_full_name = $product->slug.'-image-'.'2'.'.' . $ext;
             $upload_path = 'images/bulk_product_image/';
             $image_url = $upload_path . $image_full_name;
             $success = $image2->move($upload_path, $image_full_name);
             if ($success) {
-                if ($request->product_id22 != '') {
-                    $product_image = BulkProductImage::find($request->product_id22);
-                }else {
-                    $product_image = new ProductImage;
-                    $product_image->product_id = $product->id;
-                    $product_image->image = $image_full_name;
-                }
-
+//                if ($request->product_id22 != '') {
+//                    $product_image = BulkProductImage::find($request->product_id22);
+//                }else {
+//                    $product_image = new ProductImage;
+//                    $product_image->product_id = $product->id;
+//                    $product_image->image = $image_full_name;
+//                }
+//
+//                $product_image->save();
+                $product_image = BulkProductImage::find($request->product_id22);
+                $product_image->image = $image_full_name;
                 $product_image->save();
             }
         }
@@ -168,19 +179,51 @@ class BulkProductController extends Controller
                 File::delete('images/bulk_product_image/'.$request->product_image33);
             }
             $ext = strtolower($image3->getClientOriginalExtension());
-            $image_full_name = $product->slug.'-image-'. '3' .'.' . $ext;
+            $image_time = time();
+            $image_full_name = $product->slug.'-image-'.'3'.'.' . $ext;
             $upload_path = 'images/bulk_product_image/';
             $image_url = $upload_path . $image_full_name;
             $success = $image3->move($upload_path, $image_full_name);
             if ($success) {
-                if ($request->product_id33 != '') {
-                    $product_image = BulkProductImage::find($request->product_id22);
-                }else {
-                    $product_image = new ProductImage;
-                    $product_image->product_id = $product->id;
-                    $product_image->image = $image_full_name;
-                }
+//                if ($request->product_id33 != '') {
+//                    $product_image = BulkProductImage::find($request->product_id22);
+//                }else {
+//                    $product_image = new ProductImage;
+//                    $product_image->product_id = $product->id;
+//                    $product_image->image = $image_full_name;
+//                }
+//
+//                $product_image->save();
+                $product_image = BulkProductImage::find($request->product_id33);
+                $product_image->image = $image_full_name;
+                $product_image->save();
+            }
+        }
 
+        $image4 = $request->file('product_image4');
+        if ($image4) {
+            if(File::exists('images/bulk_product_image/'.$request->product_image44))
+            {
+                File::delete('images/bulk_product_image/'.$request->product_image44);
+            }
+            $ext = strtolower($image4->getClientOriginalExtension());
+            $image_time = time();
+            $image_full_name = $product->slug.'-image-'.'4'.'.' . $ext;
+            $upload_path = 'images/bulk_product_image/';
+            $image_url = $upload_path . $image_full_name;
+            $success = $image4->move($upload_path, $image_full_name);
+            if ($success) {
+//                if ($request->product_id33 != '') {
+//                    $product_image = BulkProductImage::find($request->product_id22);
+//                }else {
+//                    $product_image = new ProductImage;
+//                    $product_image->product_id = $product->id;
+//                    $product_image->image = $image_full_name;
+//                }
+//
+//                $product_image->save();
+                $product_image = BulkProductImage::find($request->product_id44);
+                $product_image->image = $image_full_name;
                 $product_image->save();
             }
         }

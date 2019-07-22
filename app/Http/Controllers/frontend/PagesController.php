@@ -3,6 +3,9 @@
 namespace App\Http\Controllers\frontend;
 
 use App\Http\Controllers\Controller;
+use App\Models\BulkOrder;
+use App\Models\BulkProduct;
+use App\Models\BulkProductImage;
 use App\Models\Contract;
 use App\Models\Product;
 // use App\Models\ProductImage;
@@ -24,6 +27,11 @@ class PagesController extends Controller
   {
     $products = Product::orderBy('id', 'desc')->paginate(5);
     return view('frontend.pages.products', compact('products'));
+  }
+  public function bulk_products()
+  {
+    $products = BulkProduct::orderBy('id', 'desc')->paginate(5);
+    return view('frontend.pages.bulk_products', compact('products'));
   }
 
   public function search(Request $request)
@@ -57,6 +65,37 @@ class PagesController extends Controller
   {
     $product = Product::find($id);
     return view('frontend.pages.single_product', compact('product'));
+  }
+  public function single_bulk_product($id)
+  {
+    $product = BulkProduct::find($id);
+    return view('frontend.pages.single_bulk_product', compact('product'));
+  }
+  public function bulk_order_submit(Request $request)
+  {
+      $request->validate([
+          'bulk_products_id' => 'required',
+          'name' => 'required',
+          'email' => 'required',
+          'phone' => 'required',
+          'address' => 'required',
+          'country' => 'required',
+      ]);
+
+      BulkOrder::create(
+          [
+              'bulk_products_id' => $request->bulk_products_id,
+              'name' => $request->name,
+              'email' => $request->email,
+              'phone' => $request->phone,
+              'address' => $request->address,
+              'city' => $request->city,
+              'country' => $request->country,
+              'message' => $request->message,
+              'status' => 0,
+          ]
+      );
+      return redirect()->route('index')->with('success', 'Thank You. Your Bulk Order Submit Successfully. We will contract very soon');
   }
 
   public function contract()

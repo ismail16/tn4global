@@ -33,7 +33,8 @@ class ProductController extends Controller
     $product->title = $request->title;
     $product->price = $request->price;
     $product->quantity = $request->quantity;
-    $product->category = $request->category;
+    $product->category_id = $request->category_id;
+    $product->sub_category_id = $request->sub_category_id;
     $product->brand_id = $request->brand_id;
     $product->description = $request->description;
     $product->slug =  str_slug($product->title);
@@ -79,7 +80,8 @@ class ProductController extends Controller
     $product->title = $request->title;
     $product->price = $request->price;
     $product->quantity = $request->quantity;
-    $product->category = $request->category;
+    $product->category_id = $request->category_id;
+    $product->sub_category_id = $request->sub_category_id;
     $product->brand_id = $request->brand_id;
     $product->description = $request->description;
     $product->slug =  str_slug($product->title);
@@ -100,15 +102,18 @@ class ProductController extends Controller
       $image_url = $upload_path . $image_full_name;
       $success = $image0->move($upload_path, $image_full_name);
       if ($success) {
-        if ($request->product_id00) {
+//        if ($request->product_id00) {
+//          $product_image = ProductImage::find($request->product_id00);
+//        }else {
+//          $product_image = new ProductImage;
+//          $product_image->product_id = $product->id;
+//          $product_image->image = $image_full_name;
+//        }
+//
+//        $product_image->save();
           $product_image = ProductImage::find($request->product_id00);
-        }else {
-          $product_image = new ProductImage;
-          $product_image->product_id = $product->id;
           $product_image->image = $image_full_name;
-        }
-
-        $product_image->save();
+          $product_image->save();
       }
     }
 
@@ -124,14 +129,17 @@ class ProductController extends Controller
       $image_url = $upload_path . $image_full_name;
       $success = $image1->move($upload_path, $image_full_name);
       if ($success) {
-        if ($request->product_id11 != '') {
+//        if ($request->product_id11 != '') {
+//          $product_image = ProductImage::find($request->product_id11);
+//        }else {
+//          $product_image = new ProductImage;
+//          $product_image->product_id = $product->id;
+//          $product_image->image = $image_full_name;
+//        }
+//        $product_image->save();
           $product_image = ProductImage::find($request->product_id11);
-        }else {
-          $product_image = new ProductImage;
-          $product_image->product_id = $product->id;
           $product_image->image = $image_full_name;
-        }
-        $product_image->save();
+          $product_image->save();
       }
     }
 
@@ -147,15 +155,18 @@ class ProductController extends Controller
       $image_url = $upload_path . $image_full_name;
       $success = $image2->move($upload_path, $image_full_name);
       if ($success) {
-        if ($request->product_id22 != '') {
+//        if ($request->product_id22 != '') {
+//          $product_image = ProductImage::find($request->product_id22);
+//        }else {
+//          $product_image = new ProductImage;
+//          $product_image->product_id = $product->id;
+//          $product_image->image = $image_full_name;
+//        }
+//
+//        $product_image->save();
           $product_image = ProductImage::find($request->product_id22);
-        }else {
-          $product_image = new ProductImage;
-          $product_image->product_id = $product->id;
           $product_image->image = $image_full_name;
-        }
-
-        $product_image->save();
+          $product_image->save();
       }
     }
 
@@ -171,17 +182,47 @@ class ProductController extends Controller
       $image_url = $upload_path . $image_full_name;
       $success = $image3->move($upload_path, $image_full_name);
       if ($success) {
-        if ($request->product_id33 != '') {
-          $product_image = ProductImage::find($request->product_id22);
-        }else {
-          $product_image = new ProductImage;
-          $product_image->product_id = $product->id;
+//        if ($request->product_id33 != '') {
+//          $product_image = ProductImage::find($request->product_id22);
+//        }else {
+//          $product_image = new ProductImage;
+//          $product_image->product_id = $product->id;
+//          $product_image->image = $image_full_name;
+//        }
+//
+//        $product_image->save();
+          $product_image = ProductImage::find($request->product_id33);
           $product_image->image = $image_full_name;
-        }
-
-        $product_image->save();
+          $product_image->save();
       }
     }
+
+      $image4 = $request->file('product_image4');
+      if ($image4) {
+          if(File::exists('images/product_image/'.$request->product_image44))
+          {
+              File::delete('images/product_image/'.$request->product_image44);
+          }
+          $ext = strtolower($image4->getClientOriginalExtension());
+          $image_full_name = $product->slug.'-image-'. '4' .'.' . $ext;
+          $upload_path = 'images/product_image/';
+          $image_url = $upload_path . $image_full_name;
+          $success = $image4->move($upload_path, $image_full_name);
+          if ($success) {
+//        if ($request->product_id33 != '') {
+//          $product_image = ProductImage::find($request->product_id22);
+//        }else {
+//          $product_image = new ProductImage;
+//          $product_image->product_id = $product->id;
+//          $product_image->image = $image_full_name;
+//        }
+//
+//        $product_image->save();
+              $product_image = ProductImage::find($request->product_id44);
+              $product_image->image = $image_full_name;
+              $product_image->save();
+          }
+      }
 
     return back();
   }

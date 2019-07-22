@@ -37,23 +37,13 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlSelect1">Category</label>
-                    <select class="form-control" name="category" id="exampleFormControlSelect1">
-                      <option value="">Parent Category</option>
-                      @foreach(App\Models\Category::orderBy('name', 'desc')->where('parent_id', null)->get() as $parent)
-                        <option value="{{ $parent->id }}" {{ $product->category == $parent->id? 'selected':''  }}>{{ $parent->name }}</option>
-                        @foreach(App\Models\Category::orderBy('name', 'desc')->where('parent_id', $parent->id )->get() as $child)
-                        <option value="{{ $child->id }}" {{ $product->category == $child->id? 'selected':''  }}>-->{{ $child->name }}</option>
-                        @endforeach
-                      @endforeach
-                    </select>
+                    <input type="text" class="form-control" name="category_id" value="{{ $product->category_id }}" id="exampleFormControlSelect1">
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleInputEmail1">Select Brand</label>
-                    <select class="form-control" name="brand_id">
-                      <option value="10">Please select a brand for the product</option>
-                    </select>
+                    <input type="text" class="form-control" name="brand_id" value="{{ $product->brand_id }}" id="exampleInputEmail1">
                   </div>
                 </div>
               </div>
@@ -80,6 +70,7 @@
 
                   <div class="col-md-4">
                     @if(isset($product_image[0]['image']))
+{{--                        {{$product_image[0]['image']}}--}}
                     <img src="{{ asset('images/bulk_product_image/'.$product_image[0]['image']) }}" alt="" width="50px">
                     <input type="hidden" value="{{ $product_image[0]['id'] }}"  name="product_id00" >
                     <input type="hidden" value="{{ $product_image[0]['image'] }}"  name="product_image00" >
@@ -113,6 +104,15 @@
                     <input type="hidden" value="{{ $product_image[3]['image'] }}"  name="product_image33" >
                     @endif
                     <input type="file" class="form-control" name="product_image3" id="product_image" >
+                  </div>
+
+                  <div class="col-md-4">
+                    @if(isset($product_image[4]['image']))
+                      <img src="{{ asset('images/bulk_product_image/'.$product_image[4]['image']) }}" alt="" width="50px">
+                      <input type="hidden" value="{{ $product_image[4]['id'] }}"  name="product_id44" >
+                      <input type="hidden" value="{{ $product_image[4]['image'] }}"  name="product_image44" >
+                    @endif
+                    <input type="file" class="form-control" name="product_image4" id="product_image" >
                   </div>
                 </div>
               </div>

@@ -40,6 +40,36 @@
     </li>
 
     <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#Bulkorder" aria-expanded="false" aria-controls="ui-basic">
+        <i class="fas fa-ambulance menu-icon"></i>
+        <span class="menu-title">Bulk Orders</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="Bulkorder">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.bukl_orders.manage') }}">Manage Orders</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="collapse" href="#Requirementorder" aria-expanded="false" aria-controls="ui-basic">
+        <i class="fas fa-ambulance menu-icon"></i>
+        <span class="menu-title">Requirement Orders</span>
+        <i class="menu-arrow"></i>
+      </a>
+      <div class="collapse" id="Requirementorder">
+        <ul class="nav flex-column sub-menu">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('admin.requirement.manage') }}">Requirement Orders</a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <li class="nav-item">
       <a class="nav-link" data-toggle="collapse" href="#Category" aria-expanded="false" aria-controls="ui-basic">
         <i class="fa fa-list-alt menu-icon"></i>
         <span class="menu-title">Category</span>

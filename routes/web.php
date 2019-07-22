@@ -2,16 +2,19 @@
 
 Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::get('/products', 'frontend\PagesController@products')->name('products');
+Route::get('/bulk-products', 'frontend\PagesController@bulk_products')->name('bulk.products');
 Route::group(['prefix' => 'search'], function(){
   Route::POST('/product', 'frontend\PagesController@search')->name('search.product');
 });
 Route::get('/category/{category_id}', 'frontend\PagesController@productsByCategory')->name('productsByCategory');
 Route::get('/product/{id}', 'frontend\PagesController@single_product')->name('single_product');
+Route::get('/bulk-products/{id}', 'frontend\PagesController@single_bulk_product')->name('single_bulk_product');
 Route::get('/contract', 'frontend\PagesController@contract')->name('contract');
 Route::post('/contract', 'frontend\PagesController@contract_submit')->name('contract_submit');
 
 Route::get('/requirement', 'frontend\PagesController@requirement')->name('requirement');
 Route::post('/requirement', 'frontend\PagesController@requirement_submit')->name('requirement_submit');
+Route::post('/bulk-order-submit', 'frontend\PagesController@bulk_order_submit')->name('bulk_order_submit');
 
 
 Route::get('/blogs', 'frontend\PagesController@blogs')->name('blogs');
@@ -61,6 +64,21 @@ Route::group(['prefix' => 'admin'],function(){
     Route::post('/seen_by_admin/{id}', 'backend\OrdersController@seen_by_admin')->name('admin.orders.seen_by_admin');
     Route::post('/delete/{id}', 'backend\OrdersController@delete')->name('admin.orders.delete');
   });
+
+    // Orders route
+      Route::group(['prefix' => '/bulk-orders'],function(){
+        Route::get('/', 'backend\bulkOrdersController@manage')->name('admin.bukl_orders.manage');
+        Route::get('/details/{id}', 'backend\bulkOrdersController@details')->name('admin.bukl_orders.details');
+        Route::get('/seen_by_admin/{id}', 'backend\bulkOrdersController@seen_by_admin')->name('admin.bukl_orders.seen_by_admin');
+      Route::post('/delete/{id}', 'backend\bulkOrdersController@delete')->name('admin.bukl_orders.delete');
+    });
+    // requirement route
+      Route::group(['prefix' => '/requirement-order'],function(){
+        Route::get('/', 'backend\RequirementOrdersController@manage')->name('admin.requirement.manage');
+        Route::get('/details/{id}', 'backend\RequirementOrdersController@details')->name('admin.requirement.details');
+        Route::get('/seen_by_admin/{id}', 'backend\RequirementOrdersController@seen_by_admin')->name('admin.requirement.seen_by_admin');
+      Route::post('/delete/{id}', 'backend\RequirementOrdersController@delete')->name('admin.requirement.delete');
+    });
 
   // category route
   Route::group(['prefix' => '/category'],function(){

@@ -11,8 +11,8 @@
       <div class="col-md-10 grid-margin stretch-card">
         <div class="card">
           <div class="card-body">
-            <h4 class="card-title">Add Bulk Product</h4>
-            <form class="forms-sample" method="post" action="{{ route('admin.bulk_product.store') }}" enctype="multipart/form-data">
+            <h4 class="card-title">Add Product</h4>
+            <form class="forms-sample" method="post" action="{{ route('admin.product.store') }}" enctype="multipart/form-data">
               @csrf
               <div class="form-group">
                 <label for="exampleInputName1">Title</label>
@@ -37,13 +37,23 @@
                 <div class="col-md-6">
                   <div class="form-group">
                     <label for="exampleFormControlSelect1">Category</label>
-                    <input type="text" class="form-control" name="category_id" id="exampleFormControlSelect1">
+                    <select class="form-control" name="category" id="exampleFormControlSelect1">
+                      <option value="">Parent Category</option>
+                      @foreach(App\Models\Category::orderBy('name', 'desc')->where('parent_id', null)->get() as $parent)
+                        <option value="{{ $parent->id }}">{{ $parent->name }}</option>
+                        @foreach(App\Models\Category::orderBy('name', 'desc')->where('parent_id', $parent->id )->get() as $child)
+                        <option value="{{ $child->id }}">-->{{ $child->name }}</option>
+                        @endforeach
+                      @endforeach
+                    </select>
                   </div>
                 </div>
                 <div class="col-md-6">
                   <div class="form-group">
-                    <label for="exampleInputEmail1">Brand</label>
-                    <input type="text" class="form-control" name="brand_id" id="exampleInputEmail1">
+                    <label for="exampleInputEmail1">Select Brand</label>
+                    <select class="form-control" name="brand_id">
+                      <option value="10">Please select a brand for the product</option>
+                    </select>
                   </div>
                 </div>
               </div>
