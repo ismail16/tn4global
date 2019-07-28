@@ -73,13 +73,13 @@
       </div>
     </div>
   </div>
-  <div class="copyright__wrapper" style="background-color: #2f404e!important;">
+  <div class="copyright__wrapper" style="background-color: #e1e6be!important;">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 col-md-12 col-sm-12">
           <div class="copyright">
             <div class="copy__right__inner text-center">
-              <p style="color: #fff;">Copyright <i class="fa fa-copyright"></i> <a href="http://tn4global.com/" style="color: #62bc45;">TN4GLOBAL</a> All Rights Reserved</p>
+              <p style="color: #000; font-weight: 500;">Copyright <i class="fa fa-copyright"></i> <a href="http://tn4global.com/" style="color: #62bc45;">TN4GLOBAL</a> All Rights Reserved</p>
             </div>
           </div>
         </div>

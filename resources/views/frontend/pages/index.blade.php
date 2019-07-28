@@ -6,10 +6,10 @@
   <!-- Start Single Slide -->
   <div class="slide animation__style10 _bg-image--1 fullscreen align__center--left">
       <img src="{{asset('public/frontend_assets/images/bg/Baner-01.png')}}" alt="">
-      <div class="slider__content" style="background-color: #56ba47; opacity: .6; color: #00a651; position: absolute; bottom: 5px; text-align: center;">
+       <div class="slider__content" style="_background-color: #56ba47; opacity: .6; _color: #00a651; position: absolute; bottom: 5px; text-align: center;">
           <div class="contentbox">
-              <h3>To get offer !!</h3>
-              <a class="shopbtn" href="#">shop now</a>
+              <h4 style="color:red">To get offer !!</h4>
+              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>
           </div>
       </div>
   </div>
@@ -18,10 +18,10 @@
   <div class="slide animation__style10 _bg-image--2 fullscreen align__center--left">
       <img src="{{asset('public/frontend_assets/images/bg/Baner-02.png')}}" alt="">
 
-      <div class="slider__content" style="background-color: #56ba47; opacity: .6; color: #00a651; position: absolute; bottom: 5px; text-align: center;">
+       <div class="slider__content" style="_background-color: #56ba47; opacity: .6; _color: #00a651; position: absolute; bottom: 5px; text-align: center;">
           <div class="contentbox">
-              <h3>To get offer !!</h3>
-              <a class="shopbtn" href="#">shop now</a>
+              <h4 style="color:red">To get offer !!</h4>
+              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>
           </div>
       </div>
   </div>
@@ -29,10 +29,10 @@
     <!-- Start Single Slide -->
     <div class="slide animation__style10 _bg-image--3 fullscreen align__center--left">
         <img src="{{asset('public/frontend_assets/images/bg/Baner-03.png')}}" alt="">
-        <div class="slider__content" style="background-color: #56ba47; opacity: .6; color: #00a651; position: absolute; bottom: 5px; text-align: center;">
+        <div class="slider__content" style="_background-color: #56ba47; opacity: .6; _color: #00a651; position: absolute; bottom: 5px; text-align: center;">
             <div class="contentbox">
-                <h3>To get offer !!</h3>
-                <a class="shopbtn" href="#">shop now</a>
+              <h4 style="color:red">To get offer !!</h4>
+              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>
             </div>
         </div>
     </div>
@@ -78,7 +78,7 @@
               <div class="product-content">
                 <h3 class="title"><a href="{{ route('single_product',$product->id) }}">{{ $product->title }}</a></h3>
                 <div class="price">
-                  {{ $product->price }}
+                  {{ $product->price }} Tk
                   <!-- <span>$16.00</span> -->
                 </div>
                 @include('frontend.partial.add_to_cart')
@@ -123,17 +123,16 @@
       <div class="product product__style--3">
         <div class="col-lg-3 col-md-4 col-sm-6 col-12">
           <div class="product__thumb">
-            <a class="first__img" href="single-product.html"><img src="{{ asset('images/product_image/'.$product->images->first()->image) }}" alt="product image"></a>
-            <a class="second__img animation1" href="single-product.html"><img src="{{ asset('images/product_image/'.$product->images->first()->image) }}" alt="product image"></a>
+            <a class="first__img" href="{{ route('single_product',$product->id) }}"><img src="{{ asset('images/product_image/'.$product->images->first()->image) }}" alt="product image"></a>
+            <a class="second__img animation1" href="{{ route('single_product',$product->id) }}"><img src="{{ asset('images/product_image/'.$product->images->first()->image) }}" alt="product image"></a>
             <div class="hot__box color--2">
               <span class="hot-label">HOT</span>
             </div>
           </div>
           <div class="product__content content--center">
-            <h4><a href="single-product.html">{{  $product->title }}</a></h4>
+            <h4><a href="{{ route('single_product',$product->id) }}">{{  $product->title }}</a></h4>
             <ul class="prize d-flex">
-              <li>$35.00</li>
-              <li class="old_prize">$35.00</li>
+              <li> {{ $product->price }} Tk</li>
             </ul>
             <div class="action">
               <div class="actions_inner">
@@ -179,7 +178,7 @@
                     <p>To get exclusive offers Global buyers can order their requirements</p>
                     <div class="newsletter__box text-right">
 {{--                        <input type="email" placeholder="Enter your e-mail">--}}
-                        <a href="#" class="btn btn-primary">Order --></a>
+                        <a href="{{ route('requirement') }}" class="btn btn-primary">Order --></a>
                     </div>
                 </div>
             </div>

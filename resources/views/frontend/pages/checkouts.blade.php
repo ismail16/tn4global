@@ -178,10 +178,11 @@
 								<p>
 									<strong>{{ $payment->name }}</strong>
 									<br>
-									<strong>Account Type: {{$payment->type}}</strong>
+									<strong>Account Type: {{$payment->type}}</strong><br>
+									<strong>Bkash Number: 01983783387 Personal</strong>
 								</p>
 								<div class="alert alert-success">
-									Please send the above money to this Bkash No and write your transaction code below there..
+									Please send the above money to this Bkash Number and write your transaction code below there..
 								</div>
 							</div>
 							@endif

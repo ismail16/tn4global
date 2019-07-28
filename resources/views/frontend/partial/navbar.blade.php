@@ -1,4 +1,4 @@
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark sticky__header" style="background-color: #2f404e!important;">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark sticky__header" style="background-color: #e1e6be!important">
     <div class="col-md-6 col-sm-6 col-6 col-lg-2">
         <div class="logo">
             <a href="{{ route('index') }}">
@@ -122,7 +122,14 @@
         position: relative;
         width: 36px;
         font-size: 24px;
+        color: #171414;
+        font-weight: 500;
     }
+    .nav-link{
+        color: #171414 !important;
+        font-weight: 500 !important;
+    }
+
 
     .search-bar-stiky{
         -webkit-animation: 0.4s ease-in-out 0s normal both 1 running fadeInDown;
