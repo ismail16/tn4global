@@ -7,10 +7,10 @@
   <div class="slide animation__style10 _bg-image--1 fullscreen align__center--left">
       <img src="{{asset('public/frontend_assets/images/bg/Baner-01.png')}}" alt="">
        <div class="slider__content" style="_background-color: #56ba47; opacity: .6; _color: #00a651; position: absolute; bottom: 5px; text-align: center;">
-          <div class="contentbox">
-              <h4 style="color:red">To get offer !!</h4>
-              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>
-          </div>
+{{--          <div class="contentbox">--}}
+{{--              <h4 style="color:red">To get offer !!</h4>--}}
+{{--              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>--}}
+{{--          </div>--}}
       </div>
   </div>
   <!-- End Single Slide -->
@@ -19,10 +19,10 @@
       <img src="{{asset('public/frontend_assets/images/bg/Baner-02.png')}}" alt="">
 
        <div class="slider__content" style="_background-color: #56ba47; opacity: .6; _color: #00a651; position: absolute; bottom: 5px; text-align: center;">
-          <div class="contentbox">
-              <h4 style="color:red">To get offer !!</h4>
-              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>
-          </div>
+{{--          <div class="contentbox">--}}
+{{--              <h4 style="color:red">To get offer !!</h4>--}}
+{{--              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>--}}
+{{--          </div>--}}
       </div>
   </div>
   <!-- End Single Slide -->
@@ -30,10 +30,10 @@
     <div class="slide animation__style10 _bg-image--3 fullscreen align__center--left">
         <img src="{{asset('public/frontend_assets/images/bg/Baner-03.png')}}" alt="">
         <div class="slider__content" style="_background-color: #56ba47; opacity: .6; _color: #00a651; position: absolute; bottom: 5px; text-align: center;">
-            <div class="contentbox">
-              <h4 style="color:red">To get offer !!</h4>
-              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>
-            </div>
+{{--            <div class="contentbox">--}}
+{{--              <h4 style="color:red">To get offer !!</h4>--}}
+{{--              <a style="margin-left:50px; background-color: #fff;opacity: 1; color:#c34040" class="shopbtn" href="">shop now</a>--}}
+{{--            </div>--}}
         </div>
     </div>
     <!-- End Single Slide -->
