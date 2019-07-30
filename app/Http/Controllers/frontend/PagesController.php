@@ -58,7 +58,9 @@ class PagesController extends Controller
   }
   public function productsByCategory($category_id)
   {
-    $products = Product::orderBy('id', 'desc')->where('category',$category_id)->paginate(2);
+    $products = Product::orderBy('id', 'desc')->where('category_id',$category_id)->paginate(2);
+
+//    return $products;
     return view('frontend.pages.productsByCategory', compact('products'));
   }
   public function single_product($id)

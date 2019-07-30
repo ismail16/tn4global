@@ -288,6 +288,18 @@ function search_product() {
 $("#product_category_selector").change(function(){
   $('#select_category_id').val(this.value)
 });
+
+
+
+</script>
+
+<script type="text/javascript">
+    $('.container').imagesLoaded( function() {
+        $("#exzoom").exzoom({
+            autoPlay: false,
+        });
+        $("#exzoom").removeClass('hidden')
+    });
 </script>
 
 </body>

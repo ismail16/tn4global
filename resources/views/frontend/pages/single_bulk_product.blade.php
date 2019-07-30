@@ -12,11 +12,20 @@
 								@php
 									$images = \App\Models\BulkProductImage::where('product_id',$product->id)->get();
 								@endphp
-								<div class="fotorama wn__fotorama__action" data-nav="thumbs">
-									@foreach($images as $image)
-{{--										{{$image}}--}}
-									<a><img src="{{ asset('images/bulk_product_image/'.$image->image) }}" alt=""></a>
-									@endforeach
+								<div class="exzoom hidden" id="exzoom">
+									<div class="exzoom_img_box">
+										<ul class='exzoom_img_ul'>
+											@foreach($images as $image)
+												<li><img src="{{ asset('images/bulk_product_image/'.$image->image) }}" alt=""></li>
+											@endforeach
+										</ul>
+									</div>
+									<div class="exzoom_nav">
+									</div>
+									<p class="exzoom_btn">
+										<a href="javascript:void(0);" class="exzoom_prev_btn"> < </a>
+										<a href="javascript:void(0);" class="exzoom_next_btn"> > </a>
+									</p>
 								</div>
 							</div>
 						</div>

@@ -29,6 +29,10 @@
 	<script src="{{ asset('public/frontend_assets/js/vendor/modernizr-3.5.0.min.js')}}"></script>
 	<script src="{{ asset('public/frontend_assets/js/vendor/jquery-3.2.1.min.js')}}"></script>
 
+	<script src="https://unpkg.com/imagesloaded@4/imagesloaded.pkgd.min.js"></script>
+	<script src="{{ asset('public/frontend_assets/image_zoom/jquery.exzoom.js')}}"></script>
+	<link href="{{ asset('public/frontend_assets/image_zoom/jquery.exzoom.css')}}" rel="stylesheet" type="text/css"/>
+
 </head>
 <body>
 	<!--[if lte IE 9]>
