@@ -1,4 +1,4 @@
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark sticky__header" style="background-color: #e1e6be!important">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark sticky__header" style="background-color: #e1e6be!important;padding: 0px 20px !important;">
     <div class="col-md-6 col-sm-6 col-6 col-lg-2">
         <div class="logo">
             <a href="{{ route('index') }}">
@@ -95,28 +95,30 @@
         </ul>
     </div>
 </nav>
-{{--<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark search-bar-stiky d-flex justify-content-end">--}}
-{{--    <div class="row">--}}
-{{--        <div class="col-12">--}}
-{{--            <form class="form-inline" action="#">--}}
-{{--                <div class="input-group mb-3">--}}
-{{--                    <select class="custom-select" name="category_id">--}}
-{{--                        @foreach(App\Models\Category::orderBy('id', 'desc')->get() as $category)--}}
-{{--                            <option value="{{ $category->id }}">{{ $category->name }}</option>--}}
-{{--                        @endforeach--}}
-{{--                    </select>--}}
-{{--                    <input type="text" name="key_word" class="form-control" placeholder="Search Product" >--}}
-{{--                    <div class="input-group-prepend">--}}
-{{--                        <button class="btn btn-outline-secondary" type="button">--}}
-{{--                            <i class="fa fa-search"></i>--}}
-{{--                        </button>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark search-bar-stiky d-flex justify-content-end">
+    <div class="row">
+        <div class="col-12">
+            <form class="form-inline" method="post" action="{{route('search.product')}}">
+                @csrf
+                <div class="input-group mb-3">
+                    <select class="custom-select" name="category_id">
+                        <option value="">Select Category</option>
+                        @foreach(App\Models\Category::orderBy('id', 'desc')->get() as $category)
+                            <option value="{{ $category->id }}">{{ $category->name }}</option>
+                        @endforeach
+                    </select>
+                    <input type="text" name="key_word" class="form-control" placeholder="Search Product" >
+                    <div class="input-group-prepend">
+                        <button class="btn btn-outline-secondary" type="submit">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                </div>
 
-{{--            </form>--}}
-{{--        </div>--}}
-{{--    </div>--}}
-{{--</nav>--}}
+            </form>
+        </div>
+    </div>
+</nav>
 <style>
     .navbar-icon-top .navbar-nav .nav-link > .fa {
         position: relative;
@@ -138,10 +140,11 @@
         /* box-shadow: 0 0 5px #bdbdbd; */
         /* left: 0; */
         position: fixed;
-        top: 78px;
+        top: 63px;
          transition: box-shadow 0.5s ease-in-out 0s;
         width: 100%;
         z-index: 99;
+        right: -15px;
     }
 
     .navbar-icon-top .navbar-nav .nav-link > .fa > .badge {

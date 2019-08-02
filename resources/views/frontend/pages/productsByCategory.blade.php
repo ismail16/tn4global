@@ -102,7 +102,9 @@
 															Price -{{ $product->price }}TK
 															<!-- <span>$16.00</span> -->
 														</div>
-														<a class="_add-to-cart btn btn-secondary btn-sm" href="">ADD TO CART</a>
+														@include('frontend.partial.add_to_cart')
+
+														{{--														<a class="_add-to-cart btn btn-secondary btn-sm" href="">ADD TO CART</a>--}}
 													</div>
 												</div>
 											</div>

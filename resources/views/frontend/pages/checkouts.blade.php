@@ -130,18 +130,19 @@
 									$totaPrice += $cart->product->price * $cart->product_quantity;
 								@endphp
 							@endforeach
-							<li>Cart Subtotal <span>{{ $totaPrice }}-tk</span></li>
-							<li>Shipping <span>$48.00-tk</span></li>
-							<li>
-								<input type="text" name="" value="" placeholder="Enter Cropon"class="form-control mr-1">
-								<span>
-									<button type="button" class="btn btn-primary">Apply Code</button>
-								</span>
-							</li>
+							<li>Cart Subtotal <span>{{ $totaPrice }} Tk</span></li>
+{{--							<li>Shipping <span> 48.00 Tk</span></li>--}}
+{{--							<li>--}}
+{{--								<input type="text" name="" value="" placeholder="Enter Cropon"class="form-control mr-1">--}}
+{{--								<span>--}}
+{{--									<button type="button" class="btn btn-primary">Apply Code</button>--}}
+{{--								</span>--}}
+{{--							</li>--}}
 						</ul>
 						<ul class="total__amount">
-							<li>Order Total <span>{{ $totaPrice + 48 }}-tk</span></li>
+							<li>Order Total <span>{{ $totaPrice + 48 }} Tk</span></li>
 						</ul>
+
 					</div>
 
 
@@ -171,6 +172,11 @@
 										You will get your product in two or three business days.
 									</small>
 								</h3>
+								<div class="row">
+									<div class="col-md-12 text-center alert-warning">
+										<p style="font-size: 11px;">[N.B Shipping Cost In Dhaka 50 Tk and Outside Of Dhaka 100 Tk]</p>
+									</div>
+								</div>
 							</div>
 							@else
 							<div id="payment_{{ $payment->short_name }}" class="alert alert-success mt-2 text-center hidden"
@@ -184,6 +190,11 @@
 								<div class="alert alert-success">
 									Please send the above money to this Bkash Number and write your transaction code below there..
 								</div>
+									<div class="row">
+										<div class="col-md-12 text-center alert-warning">
+											<p style="font-size: 11px;">[N.B Shipping Cost In Dhaka 50 Tk and Outside Of Dhaka 100 Tk]</p>
+										</div>
+									</div>
 							</div>
 							@endif
 							@endforeach

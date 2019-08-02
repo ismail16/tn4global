@@ -4,7 +4,7 @@ Route::get('/', 'frontend\PagesController@index')->name('index');
 Route::get('/products', 'frontend\PagesController@products')->name('products');
 Route::get('/bulk-products', 'frontend\PagesController@bulk_products')->name('bulk.products');
 Route::group(['prefix' => 'search'], function(){
-  Route::POST('/product', 'frontend\PagesController@search')->name('search.product');
+  Route::any('/product', 'frontend\PagesController@search')->name('search.product');
 });
 Route::get('/category/{category_id}', 'frontend\PagesController@productsByCategory')->name('productsByCategory');
 Route::get('/product/{id}', 'frontend\PagesController@single_product')->name('single_product');

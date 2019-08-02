@@ -32,6 +32,7 @@ class CartsController extends Controller
   */
   public function store(Request $request)
   {
+//      return $request->search_product;
     $this->validate($request, [
       'product_id' => 'required'
     ],
@@ -62,11 +63,10 @@ class CartsController extends Controller
       $cart->save();
     }
     session()->flash('success', 'Product has add to cart !!');
-
     if ($request->search_product == 'search_product') {
-       return redirect()->route('products');
+        return redirect('/products');
     }else{
-      return back();
+        return back();
     }
 
   }

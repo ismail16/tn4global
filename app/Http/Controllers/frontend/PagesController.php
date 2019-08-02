@@ -38,12 +38,15 @@ class PagesController extends Controller
   {
 
     $category_id = $request->category_id;
-    $search_key = $request->search_keyword;
+    $search_key = $request->key_word;
+
+//    return $request;
 
     if ($category_id != '' || $search_key != '') {
       $search_results = Product::Where('title', 'LIKE', '%' .$search_key. '%')
-      ->Where('category', 'LIKE', '%'. $category_id . '%')
-      ->get();
+      ->Where('category_id', 'LIKE', '%'. $category_id . '%')
+      ->paginate(10);
+//      return "hello";
       if (count($search_results)>0) {
         return view('frontend.pages.search_products', compact('search_results'));
       }else{
