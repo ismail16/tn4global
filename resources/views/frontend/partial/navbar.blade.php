@@ -1,4 +1,4 @@
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark sticky__header" style="background-color: #e1e6be!important;padding: 0px 20px !important;">
+<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark sticky__header" style="background-color: #e1e6be!important;padding: 0px 20px !important;position: relative;">
     <div class="col-md-6 col-sm-6 col-6 col-lg-2">
         <div class="logo">
             <a href="{{ route('index') }}">
@@ -6,6 +6,9 @@
             </a>
         </div>
     </div>
+    <button class="navbar-toggler toggle_search_btn" type="button" >
+        <i class="fa fa-search"></i>
+    </button>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
@@ -51,6 +54,12 @@
         </ul>
         <ul class="navbar-nav ">
             <li class="nav-item">
+                <a class="nav-link toggle_search_btn">
+                    <i class="fa fa-search">
+                    </i>
+                </a>
+            </li>
+            <li class="nav-item">
                 <a class="nav-link" href="{{ route('carts') }}">
                     <i class="fa fa-cart-plus">
                         <span class="badge badge-info">{{ App\Models\Cart::totalItems() }}</span>
@@ -94,31 +103,32 @@
             @endguest
         </ul>
     </div>
-</nav>
-<nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark search-bar-stiky d-flex justify-content-end">
-    <div class="row">
-        <div class="col-12">
-            <form class="form-inline" method="post" action="{{route('search.product')}}">
-                @csrf
-                <div class="input-group mb-3">
-                    <select class="custom-select" name="category_id">
-                        <option value="">Select Category</option>
-                        @foreach(App\Models\Category::orderBy('id', 'desc')->get() as $category)
-                            <option value="{{ $category->id }}">{{ $category->name }}</option>
-                        @endforeach
-                    </select>
-                    <input type="text" name="key_word" class="form-control" placeholder="Search Product" >
-                    <div class="input-group-prepend">
-                        <button class="btn btn-outline-secondary" type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
+    <div id="search_div" class="" style="display: none !important;position: absolute; right: 5px; top: 71px; z-index: 999;">
+        <div class="row">
+            <div class="col-12">
+                <form class="form-inline" method="post" action="{{route('search.product')}}">
+                    @csrf
+                    <div class="input-group mb-3">
+                        <select class="custom-select" name="category_id">
+                            <option value="">Select Category</option>
+                            @foreach(App\Models\Category::orderBy('id', 'desc')->get() as $category)
+                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                            @endforeach
+                        </select>
+                        <input type="text" name="key_word" class="form-control" placeholder="Search Product" >
+                        <div class="input-group-prepend">
+                            <button class="btn btn-outline-secondary" type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </div>
                     </div>
-                </div>
 
-            </form>
+                </form>
+            </div>
         </div>
     </div>
 </nav>
+
 <style>
     .navbar-icon-top .navbar-nav .nav-link > .fa {
         position: relative;
@@ -253,6 +263,20 @@
         .navbar-icon-top.navbar-expand-xl .navbar-nav .nav-link > .fa > .badge {
             top: -7px;
 </style>
+<script>
+    // $(document).ready(function () {
+    //     $('.toggle_search_btn').click(function () {
+    //
+    //         $('#search_div').Toggle();
+    //         console.log('hello')
+    //     });
+    // })
+    $(document).ready(function(){
+        $(".toggle_search_btn").click(function(){
+            $("#search_div").slideToggle();
+        });
+    });
+</script>
 <!-- Start Search Popup -->
 <!-- <div class="brown-color box-search-content search_active block-bg close__top">
   <form id="search_mini_form" class="minisearch" action="#">
@@ -269,4 +293,5 @@
 </div> -->
 <!-- End Search Popup -->
 <!-- Main wrapper -->
+
 <div class="wrapper" id="wrapper">
